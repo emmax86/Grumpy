@@ -6,5 +6,5 @@ def token(user_identifier, creation_datetime, secret):
 def generate_secret(bits):
 	return ""
 
-def verify_token(token, user_identifier, creation_time, secret):
+def verify_token(token, user_identifier, creation_datetime, secret):
 	return ""
