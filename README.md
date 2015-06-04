@@ -1,2 +1,2 @@
 # Grumpy
-Python authentication token library
+Simple Python authentication token library
