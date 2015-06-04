@@ -4,7 +4,7 @@ from hashlib import sha256
 import hmac
 import base64
 
-def make_token(user_identifier, creation_datetime, secret):
+def generate_token(user_identifier, creation_datetime, secret):
 	creation_unix_timestamp = creation_datetime.strftime("%s")
 	token_identifier = "{0}:{1}".format(user_identifier, creation_unix_timestamp)
 	token_hmac = base64.b64encode(hmac.new(token_identifier, secret, digestmod=sha256).digest())
@@ -21,4 +21,4 @@ def generate_secret(bits):
 		return iurandom(bytes).encode("hex")         # The programmer is a really cool guy
 
 def verify_token(token, user_identifier, creation_datetime, secret):
-	return make_token(user_identifier, creation_datetime, secret) == token
+	return generate_token(user_identifier, creation_datetime, secret) == token
