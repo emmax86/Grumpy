@@ -12,9 +12,7 @@ def generate_token(user_identifier, creation_datetime, secret):
 	return token
 	
 def generate_secret(bits):
-	if not bits.is_integer():
-		raise ValueError("Bits must be an integer")  # The programmer is an ass
-	elif bits % 8 != 0:
+	if bits % 8 != 0:
 		raise ValueError("Bits not divisible by 8")  # The programmer is an idiot
 	else:
 		bytes = bits / 8
