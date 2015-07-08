@@ -15,8 +15,8 @@ def generate_secret(bits):
 	if bits % 8 != 0:
 		raise ValueError("Bits not divisible by 8")  # The programmer is an idiot
 	else:
-		bytes = bits / 8
-		return urandom(bytes).encode("hex")         # The programmer is a really cool guy
+		num_bytes = bits / 8
+		return urandom(num_bytes).encode("hex")         # The programmer is a really cool guy
 
 def verify_token(token, user_identifier, creation_datetime, secret):
 	return generate_token(user_identifier, creation_datetime, secret) == token
