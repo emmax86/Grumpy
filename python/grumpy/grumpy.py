@@ -7,7 +7,7 @@ import base64
 def generate_token(user_identifier, creation_datetime, secret):
 	creation_unix_timestamp = creation_datetime.strftime("%s")
 	token_identifier = "{0}:{1}".format(user_identifier, creation_unix_timestamp)
-	token_hmac = base64.b64encode(hmac.new(token_identifier, secret, digestmod=sha256).digest())
+	token_hmac = base64.b64encode(hmac.new(secret, token_identifier, digestmod=sha256).digest())
 	token = "{0}:{1}".format(token_identifier, token_hmac)
 	return token
 	
